@@ -26,3 +26,6 @@ tests/protos/*
 # Sphinx generated files
 docs/api/
 docs/_build/
+
+# Custom
+examples/text-sentiment/caikit-env-3.11/
