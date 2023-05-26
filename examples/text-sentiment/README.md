@@ -11,21 +11,29 @@ The following tools are required:
 
 **Note: Before installing dependencies and to avoid conflicts in your environment, it is advisable to use a [virtual environment(venv)](https://docs.python.org/3/library/venv.html).**
 
-Install the dependencies: `pip install -r requirements.txt`
+Install the dependencies: 
 
-## Running the Caikit runtime
+```sh
+cd examples/text-sentiment
+python3.11 -m venv caikit-env-3.11
+source ./caikit-env-3.11/bin/activate
+python3 -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-In one terminal, start the runtime server:
+## Start the `Caikit runtime server`
+
+Start the `Caikit runtime server` in the first terminal: 
 
 ```shell
+cd examples/text-sentiment
+source ./caikit-env-3.11/bin/activate
 python3 start_runtime.py
 ```
 
-You should see output similar to the following:
+* Example output:
 
-```command
-$ python3 start_runtime.py   
-
+```sh
 <function register_backend_type at 0x7fce0064b5e0> is still in the BETA phase and subject to change!
 {"channel": "COM-LIB-INIT", "exception": null, "level": "info", "log_code": "<RUN11997772I>", "message": "Loading service module: text_sentiment", "num_indent": 0, "thread_id": 8605140480, "timestamp": "2023-05-02T11:42:52.808812"}
 {"channel": "COM-LIB-INIT", "exception": null, "level": "info", "log_code": "<RUN11997772I>", "message": "Loading service module: caikit.interfaces.common", "num_indent": 0, "thread_id": 8605140480, "timestamp": "2023-05-02T11:42:52.809406"}
@@ -51,28 +59,46 @@ Using a pipeline without specifying a model name and revision in production is n
 {"channel": "GRPC-SERVR", "exception": null, "level": "info", "log_code": "<RUN10001001I>", "message": "Caikit Runtime is serving on port: 8085 with thread pool size: 5", "num_indent": 0, "thread_id": 8605140480, "timestamp": "2023-05-02T11:42:53.938054"}
 ```
 
-## Inferring the Served Model
+## Start the `Caikit client` to infer the served model
 
-In another terminal, run the client code:
+Start the `Caikit client` in the second terminal:
 
 ```shell
+cd examples/text-sentiment
+source ./caikit-env-3.11/bin/activate
 python3 client.py
 ```
 
 The client code calls the model and queries it for sentiment analysis on 2 different pieces of text.
 
-You should see output similar to the following:
+* Example output:
 
-```command
-$ python3 client.py
+```sh
+<function register_backend_type at 0x10d994040> is still in the BETA phase and subject to change!
 
-<function register_backend_type at 0x7fe930bdbdc0> is still in the BETA phase and subject to change!
+*** 
+ Client stub:
+--
+ <py_to_proto.json_to_service.TextSentimentServiceStub object at 0x10c82cb90>
+--
+
+
+*** 
+ Verify if the with grpc command is available:
+--
+ ['HfModulePredict', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+--
+
+Input text proto: 'text: "I am not feeling well today!"
+'
 Text: I am not feeling well today!
 RESPONSE: classes {
   class_name: "NEGATIVE"
   confidence: 0.99977594614028931
 }
 
+Input text proto: 'text: "Today is a nice sunny day"
+'
 Text: Today is a nice sunny day
 RESPONSE: classes {
   class_name: "POSITIVE"
