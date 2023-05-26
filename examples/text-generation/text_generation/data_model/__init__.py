@@ -12,9 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime:
-    library: text_sentiment
-    local_models_dir: models
-    service_generation:
-        primitive_data_model_types:
-            - "text_sentiment.data_model.classification.TextInput"
+# Local
+from .classification import ClassificationPrediction, ClassInfo, TextInput

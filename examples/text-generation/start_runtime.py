@@ -12,9 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime:
-    library: text_sentiment
-    local_models_dir: models
-    service_generation:
-        primitive_data_model_types:
-            - "text_sentiment.data_model.classification.TextInput"
+# Standard
+from os import path
+import sys
+
+# First Party
+import alog
+
+sys.path.append(
+    path.abspath(path.join(path.dirname(__file__), "../"))
+)  # Here we assume that `start_runtime` file is at the same level of the `text_sentiment` package
+
+# Local
+import text_generation
+
+alog.configure(default_level="debug")
+
+# Local
+from caikit.runtime import grpc_server
+
+grpc_server.main()

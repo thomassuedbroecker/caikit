@@ -12,9 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime:
-    library: text_sentiment
-    local_models_dir: models
-    service_generation:
-        primitive_data_model_types:
-            - "text_sentiment.data_model.classification.TextInput"
+# Standard
+import os
+
+# Local
+from . import data_model, runtime_model
+import caikit
+
+# Give the path to the `config.yml`
+CONFIG_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), "config.yml"))
+
+caikit.configure(CONFIG_PATH)

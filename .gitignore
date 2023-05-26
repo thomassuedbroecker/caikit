@@ -29,3 +29,4 @@ docs/_build/
 
 # Custom
 examples/text-sentiment/caikit-env-3.11/
+examples/text-generation/caikit-env-3.11/

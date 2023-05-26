@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-runtime:
-    library: text_sentiment
-    local_models_dir: models
-    service_generation:
-        primitive_data_model_types:
-            - "text_sentiment.data_model.classification.TextInput"
+module_id: 000000-0000-0000-0000-0000000
+name: google/flan-t5-small
+#version: 0.0.1

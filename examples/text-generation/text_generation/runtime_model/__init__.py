@@ -11,10 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-runtime:
-    library: text_sentiment
-    local_models_dir: models
-    service_generation:
-        primitive_data_model_types:
-            - "text_sentiment.data_model.classification.TextInput"
+# # Local
+# Local
+from .hf_module import HuggingFaceTextGenerationModule
