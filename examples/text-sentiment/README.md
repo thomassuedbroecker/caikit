@@ -62,6 +62,24 @@ Using a pipeline without specifying a model name and revision in production is n
 {"channel": "GRPC-SERVR", "exception": null, "level": "info", "log_code": "<RUN10001001I>", "message": "Caikit Runtime is serving on port: 8085 with thread pool size: 5", "num_indent": 0, "thread_id": 8605140480, "timestamp": "2023-05-02T11:42:53.938054"}
 ```
 
+## Create `protos`
+
+Execute the following command in the third terminal.
+The command will create a folder with the proto files on your local computer.
+
+```sh
+
+source ./caikit-env-3.9/bin/activate
+export CONFIG_FILES=text_sentiment/config.yml
+python3 -m caikit.runtime.dump_services protos
+```
+
+### Use GRPCURL
+
+```sh
+grpcurl -import-path ./protos -proto textsentimentservice.proto -d '{"text_input":{"text":"I am not"}}' -plaintext localhost:8085 caikit.runtime.TextSentiment.TextSentimentService/HfModulePredict
+```
+
 ## Start the `Caikit client` to infer the served model
 
 Start the `Caikit client` in the second terminal:

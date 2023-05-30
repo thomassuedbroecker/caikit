@@ -1,0 +1,16 @@
+
+/*------------------------------------------------------------------------------
+ * AUTO GENERATED
+ *----------------------------------------------------------------------------*/
+
+syntax = "proto3";
+package caikit.runtime.TextSentiment;
+import "classificationprediction.proto";
+import "hfmodulerequest.proto";
+
+
+/*-- SERVICES ----------------------------------------------------------------*/
+
+service TextSentimentService {
+  rpc HfModulePredict(caikit.runtime.TextSentiment.HfModuleRequest) returns (text_sentiment.data_model.ClassificationPrediction);
+}

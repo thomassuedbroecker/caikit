@@ -1,0 +1,17 @@
+
+/*------------------------------------------------------------------------------
+ * AUTO GENERATED
+ *----------------------------------------------------------------------------*/
+
+syntax = "proto3";
+package text_sentiment.data_model;
+import "classinfo.proto";
+
+
+/*-- MESSAGES ----------------------------------------------------------------*/
+
+message ClassificationPrediction {
+
+  /*-- fields --*/
+  repeated text_sentiment.data_model.ClassInfo classes = 1;
+}
