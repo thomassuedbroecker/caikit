@@ -77,6 +77,11 @@ python3 -m caikit.runtime.dump_services protos
 ### Use GRPCURL
 
 ```sh
+grpcurl -import-path ./protos -proto textsentimentservice.proto -plaintext localhost:8085 list
+caikit.runtime.TextSentiment.TextSentimentService
+```
+
+```sh
 grpcurl -import-path ./protos -proto textsentimentservice.proto -d '{"text_input":{"text":"I am not"}}' -plaintext localhost:8085 caikit.runtime.TextSentiment.TextSentimentService/HfModulePredict
 ```
 
