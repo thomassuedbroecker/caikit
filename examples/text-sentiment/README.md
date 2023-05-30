@@ -18,6 +18,9 @@ cd examples/text-sentiment
 python3.11 -m venv caikit-env-3.11
 source ./caikit-env-3.11/bin/activate
 python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade setuptools
+python3 -m pip install --upgrade wheel
+python3 -m pip install enum34
 pip install -r requirements.txt
 ```
 

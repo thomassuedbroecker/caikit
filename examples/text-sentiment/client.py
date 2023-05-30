@@ -38,7 +38,8 @@ for text in ["I am not feeling well today!", "Today is a nice sunny day"]:
     print(f"Input text proto: '{input_text_proto}'")
     
     request = inference_service.messages.HfModuleRequest(text_input=input_text_proto)
-    
+    print(f"Input text proto: '{input_text_proto}'")
+
     response = client_stub.HfModulePredict(
         request, metadata=[("mm-model-id", "text_sentiment")]
     )

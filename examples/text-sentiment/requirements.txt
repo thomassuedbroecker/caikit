@@ -5,3 +5,8 @@ scipy
 torch
 transformers~=4.27.2
 
+# Needed for custom proto
+typing
+dataclasses
+enum34
+py_to_proto

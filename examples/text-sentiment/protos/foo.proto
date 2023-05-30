@@ -1,0 +1,22 @@
+
+/*------------------------------------------------------------------------------
+ * AUTO GENERATED
+ *----------------------------------------------------------------------------*/
+
+syntax = "proto3";
+package foobar;
+
+
+/*-- MESSAGES ----------------------------------------------------------------*/
+
+message Foo {
+
+  /*-- nested enums --*/
+  enum BarEnum {
+    PLACEHOLDER_UNSET = 0;
+  }
+
+  /*-- fields --*/
+  bool foo = 1;
+  repeated foobar.Foo.BarEnum bar = 2;
+}
